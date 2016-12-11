@@ -1,0 +1,8 @@
+.row
+  .col-xs-4
+    - asdfad
+    = link_to asset_path(@product.image_ref), rel: 'shadowbox' do
+      = image_tag(@product.image_ref)
+  .col-xs-4
+    = @product.name
+    = @product.description

@@ -1,0 +1,66 @@
+= simple_form_for :user, :url => url_for(:action => 'create', :controller => 'users'), :method => 'post' do |field|
+  .headline
+    %h3= "Godkend"
+  .content
+    %h4= "Indtast din oplysningerne nedenfor, og tryk godkend."
+    %p= "Når du har indtastet dine oplysninger, og trykket godkend vil der blive sendt en faktura til dig. Når denne denne er betalt vil varene blive sent."
+    .row
+      = field.input :order_id, as: :hidden, input_html: { value: @order.id}, required: true
+      .col-xs-6
+        = field.input :name, required: true, label: "Navn"
+        .error
+          = @user.errors.messages[:name].first if @user
+      .col-xs-6
+        = field.input :email, required: true, label: "Email"
+        .error
+          = @user.errors.messages[:email].first if @user
+    .row
+      .col-xs-6
+        = field.input :address, required: true, label: "Adresse"
+        .error
+          = @user.errors.messages[:address].first if @user
+      .col-xs-6
+        = field.input :city, required: true, label: "By"
+        .error
+          = @user.errors.messages[:city].first if @user
+    .row
+      .col-xs-6
+        = field.input :zip_code, required: true, label: "Postnummer"
+        .error
+          = @user.errors.messages[:zip_code].first if @user
+
+
+    %h4= "Du har valgt følgende emner: "
+    %table
+      %head
+      %tr
+        %th
+          = "Emne"
+        %th
+          = "Beskrivelse"
+        %th
+          = "Antal"
+        %th.price
+          = "Pris"
+      %body
+        - @order.products.each_with_index do |product, index|
+          %tr
+            %td
+              = product.name
+            %td
+              = product.description
+            %td
+              = OrdersProduct.find_by(product_id: product.id, order_id: @order.id).count
+            %td.price
+              = product.price
+        %hr
+    %hr
+    .row
+      .col-xs-12
+        .pull-right
+          = "I alt kr. " + @order.acc_price.to_s + ",-"
+    %hr
+    .row
+      .col-xs-12
+        .pull-right
+          = field.submit "Godkend", class: 'button'

@@ -1,0 +1,12 @@
+.headline
+  %h3= "Ordre bekræftigelse"
+  .content
+    %h4= "Din ordre er nu afsendt"
+    %p= "Der vil blive sendt en faktura til dig. Når denne er betalt blive din ordre sendt med posten."
+
+
+:coffeescript
+  $ ->
+    localStorage.removeItem("order_number");
+    localStorage.removeItem("order_id");
+    $('.cart_badge').html(null)

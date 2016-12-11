@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      = "Ny Ordre"
+    %h2
+      =  @user.name +  " Har bestilt følgende produkter: "
+      %br
+    - for product in @order.products do
+      = product.count_in_order(@order.id).to_s + " " + product.name + " af " + product.price.to_s + " pr. stk."
+
+    %p= "I alt bliver prisen for ordren " + @order.acc_price.to_s
+
+    %p= "Og har oplyst følgende adresse: "
+    %p=  @user.address
+    %p= @user.city + " " + @user.zip_code.to_s
+
+

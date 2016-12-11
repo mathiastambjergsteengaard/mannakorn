@@ -1,0 +1,242 @@
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ @import "font-awesome";
+ @import "shadowbox";
+
+
+
+ .button {
+   background-color: #708090;
+   border: none;
+   color: white;
+   padding: 10px 30px;
+   width: 100%;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+ }
+
+.nav{
+
+  .overview, .more, .contact, .cart{
+
+  }
+  .overview, .more, .contact{
+    a{
+      height: 67px;
+      font-size:33px;
+    }
+  }
+  .cart{
+    text-align: center;
+  }
+}
+
+body{
+  background-color: #F0F8FF;
+  .container-fluid{
+    box-shadow: 5px 5px 5px #888888;
+  }
+  padding-top: 50px;
+  .container{
+    margin-bottom: 20px;
+    width: 100%;
+    margin-top:20px;
+  }
+  img.square{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+
+  }
+  img.square.img-thumbnail{
+    padding:0px;
+  }
+  img.vertical_rec.img-thumbnail{
+    padding:0px;
+  }
+  img.vertical_rec{
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px;
+  }
+
+  .product_block{
+    padding: 20px;
+  }
+}
+
+.products_show{
+  img{
+    width:100%
+  }
+}
+
+.products_index{
+
+  .container{
+    img{
+      padding: 0px;
+      border-radius: 0px;
+    }
+  }
+}
+
+
+
+ul.dropdown-cart{
+    min-width:250px;
+}
+ul.dropdown-cart li .item{
+    display:block;
+    padding:3px 10px;
+    margin: 3px 0;
+}
+ul.dropdown-cart li .item:hover{
+    background-color:#f3f3f3;
+}
+ul.dropdown-cart li .item:after{
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.footer{
+  width: 100%;
+  background-color: white;
+  margin-bottom: 0px;
+  border-top:solid;
+  border-top-width: 2px;
+  img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+ .users_new {
+   th, td {
+     padding-right: 100px;
+   }
+   .price {
+     padding-right: 0px;
+   }
+ }
+
+.users_create {
+   th, td {
+     padding-right: 100px;
+   }
+   .price {
+     padding-right: 0px;
+   }
+
+  .form-group{
+    margin-bottom: 0px;
+  }
+
+  .error{
+    margin-bottom: 15px;
+    color: red;
+  }
+ }
+ .orders_show{
+   .order-list{
+     font-size: 28px;
+
+   }
+   .headline{
+     margin-bottom: 25px;
+   }
+
+   body.img{
+     width:100%;
+     padding: 0px;
+     border-radius: 0px;
+   }
+   .shadow_background{
+     background-color: black;
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     opacity: 0.8;
+     z-index:9999;
+   }
+   .confirmation_box{
+     label{
+       padding: 10px;
+     }
+     width: 600px;
+     height: 70%;
+     background-color: white;
+     opacity: 1;
+     position:absolute; /*it can be fixed too*/
+     left:0; right:0;
+     top:0; bottom:0;
+     margin:auto;
+
+     /*this to solve "the content will not be cut when the window is smaller than the content": */
+     max-width:100%;
+     max-height:100%;
+     overflow:auto;
+     z-index:10000;
+     border-radius: 10px;
+     box-shadow: 10px 10px 5px black;
+     .headline{
+       width:100%;
+       height:50px;
+       text-align: center;
+       color: white;
+       background-color: black;
+       padding: 10px;
+       h3{
+         margin-top: 2px;
+       }
+     }
+     .content{
+       padding: 20px;
+     }
+     th, td{
+       padding-right: 100px;
+     }
+     .price{
+       padding-right: 0px;
+     }
+     .confirm{
+       font-size: 20px;
+       padding: 12px;
+       right: 50px;
+       bottom: 37px;
+       color: white;
+       background-color: red;
+     }
+   }
+   .to_checkout{
+     position:fixed;
+     font-size: 20px;
+     padding: 12px;
+     right: 50px;
+     bottom: 37px;
+     background-color: red;
+     color: white;
+   }
+   .shop_more{
+     position:fixed;
+     font-size: 20px;
+     padding: 12px;
+     right: 257px;
+     bottom: 37px;
+     background-color: red;
+   }
+ }
+
+
+

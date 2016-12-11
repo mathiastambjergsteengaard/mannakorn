@@ -1,0 +1,18 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+  %body
+    %h1
+      = "Ordre bekræftigelse"
+    %h2
+      = "Tak for din bestilling, " + @user.name
+      %br
+
+    %p= "Du har bestilt:"
+    - for product in @order.products do
+      = product.count_in_order(@order.id).to_s + " " + product.name + " af " + product.price.to_s + " pr. stk."
+
+    %p= "I alt bliver prisen for ordren " + @order.acc_price.to_s
+
+    %p= "Mvh. Jørn Steengaard"

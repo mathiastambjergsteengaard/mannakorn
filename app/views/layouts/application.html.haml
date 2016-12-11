@@ -1,0 +1,27 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+  %head
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}
+    %title= "Mannakorn.dk"
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_include_tag 'application'
+  %body{class: controller.controller_name + "_" + action_name}
+    = render partial: '/layouts/navbar'
+    .row
+      .col-xs-2
+      .col-xs-8
+        .container
+          = yield
+    .row
+      .footer
+        = image_tag('footer.png')
+
+
+:coffeescript
+  $ ->
+    if typeof(Storage) != "undefined"
+      $('.cart_badge').html(localStorage.getItem("order_number"))
+      order_id = localStorage.getItem("order_id")
+      if order_id != null
+        $('.cart').attr('href', "/orders/" + order_id)
+

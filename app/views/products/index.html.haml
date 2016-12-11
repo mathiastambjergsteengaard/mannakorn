@@ -1,0 +1,25 @@
+- @products.in_groups_of(3).each do |product_row|
+  .row
+    - product_row.each do |product|
+      - if product.present?
+        .col-xs-4
+          .product_block
+            = link_to product_path(product) do
+              = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
+            %h3= product.name
+            %p= "kr. " + product.price.to_s + ",-"
+            = link_to new_order_path(id: product.id), class: "add" do
+              .button{data: product.id.to_s, name: product.image_ref || 'salme_37_5_road'}
+                Tilføj til ordrelisten
+                %i.fa.fa-plus
+
+:coffeescript
+  $ ->
+    order_number = localStorage.getItem("order_number")
+    if order_number != null
+      order_id = localStorage.getItem("order_id")
+      $('.add').each (i) ->
+        product_id = $(this).attr('href').split('=')[1]
+        $(this).attr 'href', '/orders/' + order_id + '/edit?product_id=' + product_id
+
+

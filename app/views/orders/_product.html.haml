@@ -1,0 +1,27 @@
+.panel.panel-default
+  .panel-body
+    .row
+      .col-xs-3
+        = link_to asset_path(product.image_ref), rel: 'shadowbox' do
+          = image_tag(product.image_ref)
+      .col-xs-3
+        %h3= product.name
+        %p= product.description
+        %p= "kr. " + product.price.to_s + ",-"
+      .col-xs-3
+      .col-xs-3
+        .pull-right
+          = link_to product_path(id: product.id, order_id: params[:id]), method: :delete do
+            .btn.btn-default
+              %i.fa.fa-minus
+          = link_to product_path(id: product.id, order_id: params[:id]), method: :delete do
+            .btn.btn-default
+              %i.fa.fa-plus
+          = link_to product_path(id: product.id, order_id: params[:id]), method: :delete do
+            .btn.btn-default
+              = "Slet"
+          %p= product.count_in_order(@order.id)
+
+
+
+

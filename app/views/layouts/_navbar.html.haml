@@ -1,0 +1,36 @@
+%nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    / Brand and toggle get grouped for better mobile display
+    .row
+      .col-xs-2
+      .col-xs-8
+        .navbar-header
+          %button.navbar-toggle.collapsed{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", :type => "button"}
+            %span.sr-only Toggle navigation
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+          = link_to products_path, class: 'navbar-brand' do
+            = "Mannakorn.dk"
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li{class: 9}
+              = link_to products_path(product_type: 1) do
+                = "Vers på væggen 20x20"
+                %span.sr-only (current)
+            %li
+              = link_to products_path(product_type: 2) do
+                = "Vers på væggen 20x42"
+            %li
+              = link_to products_path(product_type: 3) do
+                = "Mannakorn"
+            %li
+              = link_to more_path do
+                = "Mere"
+            %li
+              = link_to more_path do
+                = "Kontakt"
+            %li
+              = link_to orders_path, class: 'cart' do
+                .badge.cart_badge= "0"
+                %span.fa.fa-shopping-cart
