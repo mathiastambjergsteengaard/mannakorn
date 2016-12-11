@@ -86,8 +86,8 @@
       <file leaf-file-name="assets.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+            <state relative-caret-position="90">
+              <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -593,12 +593,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1481447282256</updated>
-      <workItem from="1481447283652" duration="4355000" />
+      <workItem from="1481447283652" duration="4588000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="4355000" />
+    <option name="totallyTimeSpent" value="4588000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="823" extended-state="6" />
@@ -964,8 +964,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/initializers/assets.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="16" lean-forward="false" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        <state relative-caret-position="90">
+          <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
           <folding />
         </state>
       </provider>
