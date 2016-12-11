@@ -2,7 +2,7 @@
 
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
-Rails.application.config.assets.precompile += Product.all.map(&:image_ref).compact
+#Rails.application.config.assets.precompile += Product.all.map(&:image_ref).compact
 Rails.application.config.assets.precompile += ['footer.png']
 Rails.application.config.assets.precompile += ["application.scss", "order_show.scss"]
 
