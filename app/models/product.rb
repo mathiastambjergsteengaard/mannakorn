@@ -19,7 +19,7 @@ class Product < ActiveRecord::Base
   end
 
   def price_kr
-    "kr. " + self.price.to_s + ",-"
+     self.price.to_s.sub('.',',') + " kr."
   end
 
   def total(order_id)

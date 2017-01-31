@@ -30,7 +30,6 @@ class OrdersController < ApplicationController
     @user.new(params[:user])
     @user.save
     @order.user_id = @user.id
-    dfsfds
     redirect_to root_path
   end
 
