@@ -6,19 +6,22 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "./Index.html"} Mannakorn
+      %a.navbar-brand{:href => "./Index.html"} Forside
     #navigationbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
+        %li
+          = link_to products_path(product_type: Product::OTHER) do
+            = "Mannakorn"
+        %li
+          = link_to products_path(product_type: Product::WALL15x15) do
+            = "Vers på væggen 15x15"
         %li{class: 9}
-          = link_to products_path(product_type: 1) do
+          = link_to products_path(product_type: Product::WALL20x20) do
             = "Vers på væggen 20x20"
             %span.sr-only (current)
         %li
-          = link_to products_path(product_type: 2) do
+          = link_to products_path(product_type: Product::WALL20x42) do
             = "Vers på væggen 20x42"
-        %li
-          = link_to products_path(product_type: 3) do
-            = "Mannakorn"
         %li
           = link_to more_path do
             = "Mere"

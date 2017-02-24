@@ -11,13 +11,13 @@
       .col-xs-3
       .col-xs-3
         .pull-right
-          = link_to product_path(id: product.id, order_id: params[:id]), method: :delete do
+          = link_to order_path(id: product.id, order_id: params[:id]), method: :delete do
             .btn.btn-default
               %i.fa.fa-minus
-          = link_to product_path(id: product.id, order_id: params[:id]), method: :delete do
+          = link_to order_path(id: product.id, order_id: params[:id]), method: :delete do
             .btn.btn-default
               %i.fa.fa-plus
-          = link_to product_path(id: product.id, order_id: params[:id]), method: :delete do
+          = link_to order_path(id: product.id, order_id: params[:id]), method: :delete do
             .btn.btn-default
               = "Slet"
           %p= product.count_in_order(@order.id)

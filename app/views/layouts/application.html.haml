@@ -5,16 +5,21 @@
     %title= "Mannakorn.dk"
     = stylesheet_link_tag 'application', media: 'all'
     = javascript_include_tag 'application'
-  %body{class: controller.controller_name + "_" + action_name}
-    = render partial: '/layouts/navbar'
-    .row
-      .col-xs-2
-      .col-xs-8
-        .container
-          = yield
-    .row
-      .footer
-        = image_tag('footer.png')
+  - if (action_name == 'admin') || (controller_name == "products" && action_name == "new") || (controller_name == "products" && action_name == "edit")
+    %body{class: controller.controller_name + "_" + action_name}
+      = yield
+  - else
+    %body{class: controller.controller_name + "_" + action_name}
+      = render partial: '/layouts/navbar'
+      .row
+        .col-xs-2
+        .col-xs-8
+          .container
+            = yield
+      .row
+        .footer
+          = image_tag('footer.png')
+
 
 
 :coffeescript

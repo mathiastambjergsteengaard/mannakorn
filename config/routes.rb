@@ -12,7 +12,12 @@ Rails.application.routes.draw do
       post 'plus'
     end
   end
-  resources :users
+
+  resources :users do
+    member do
+      get 'admin'
+    end
+  end
 
 
 

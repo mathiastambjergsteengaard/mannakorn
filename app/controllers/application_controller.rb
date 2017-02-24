@@ -6,4 +6,8 @@ class ApplicationController < ActionController::Base
   def mobile?
     request.headers['X_MOBILE_DEVICE']
   end
+
+  def admin_domain?
+    action_name == 'admin'
+  end
 end

@@ -1,0 +1,29 @@
+.row
+  .col-xs-12
+    %h2= "Opret produkt"
+= simple_form_for @product do |f|
+  .col-xs-10
+    .row
+      .col-xs-6
+        = f.input :name
+      .col-xs-6
+        = f.input :description
+    .row
+      .col-xs-6
+        = f.input :price
+      .col-xs-6
+        = f.input :html_class
+    .row
+      .col-xs-6
+        = f.input :image_ref
+      .col-xs-6
+        = f.input :product_type, as: :select, collection: Product.collection
+  .col-xs-2
+    %h4= "Billede"
+    = image_tag @product.image_ref
+  .row
+    .col-xs-12
+      .pull-right
+        = f.submit "Opret produkt"
+
+

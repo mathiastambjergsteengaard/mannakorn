@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_filter :verify_authenticity_token
+
   def index
     @products = Product.where(product_type: params[:product_type].to_i)
   end
@@ -9,9 +10,34 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+    @product = Product.new(product_params)
+    @product.save
+    redirect_to "/users/8000/admin"
+  end
+
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.update_attributes(product_params)
+    redirect_to "/users/8000/admin"
+  end
+
   def destroy
-    order_id = params[:order_id].to_i
-    OrdersProduct.where(order_id: order_id, product_id: params[:id]).delete_all
-    redirect_to order_path(order_id)
+    Product.find(params[:id]).destroy
+    redirect_to "/users/8000/admin"
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :html_class, :image_ref, :product_type)
   end
 end

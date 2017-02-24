@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+
+  def admin
+    @products = Product.all
+  end
+
+  def show
+
+  end
+
   def new
     @order = Order.find(params['order_id'])
   end

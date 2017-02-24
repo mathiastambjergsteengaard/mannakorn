@@ -1,0 +1,29 @@
+.row
+  .col-xs-12
+    = link_to "Opret produkt", new_product_path, class: 'btn btn-default'
+.row
+  .col-xs-2
+    = "Navn"
+  .col-xs-4
+    = "Beskrivelse"
+  .col-xs-2
+    = "Pris"
+  .col-xs-2
+    = "Produkt type"
+- @products.each do |product|
+  .row
+    .col-xs-2
+      = product.name
+    .col-xs-4
+      = product.description
+    .col-xs-2
+      = product.price
+    .col-xs-2
+      = Product.product_type_name(product.product_type)
+    .col-xs-2
+      = link_to "Redigér", edit_product_path(product.id), class: 'btn btn-default'
+      = link_to "Slet", product_path(product.id), method: :delete, class: 'btn btn-default', data: { confirm: "Er du sikker på at du vil slette #{product.name}" }
+
+.row
+  .col-xs-12
+    = link_to "Tilbage til hjemmeside", root_path, class: 'btn btn-default'

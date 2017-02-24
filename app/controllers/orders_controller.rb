@@ -55,4 +55,10 @@ class OrdersController < ApplicationController
     order_product.save
     redirect_to order_path(id: params["id"].to_i)
   end
+
+  def destroy
+    order_id = params[:order_id].to_i
+    OrdersProduct.where(order_id: order_id, product_id: params[:id]).delete_all
+    redirect_to order_path(order_id)
+  end
 end
