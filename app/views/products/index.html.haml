@@ -4,8 +4,8 @@
       - if product.present?
         .col-xs-4
           .product_block
-            = link_to product_path(product) do
-              = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
+            =# link_to product_path(product) do
+            = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
             %h3= product.name
             %p= product.description
             %p.price= product.price_kr
