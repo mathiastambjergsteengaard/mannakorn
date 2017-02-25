@@ -6,28 +6,28 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "./Index.html"} Forside
+      -#%a.navbar-brand{:href => "./Index.html"} Forside
     #navigationbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
+        %li{ class: params['product_type'].to_i == Product::OTHER ? "active" : ""}
           = link_to products_path(product_type: Product::OTHER) do
             = "Mannakorn"
-        %li
+        %li{ class: params['product_type'].to_i == Product::WALL15x15 ? "active" : ""}
           = link_to products_path(product_type: Product::WALL15x15) do
             = "Vers på væggen 15x15"
-        %li{class: 9}
+        %li{ class: params['product_type'].to_i == Product::WALL20x20 ? "active" : ""}
           = link_to products_path(product_type: Product::WALL20x20) do
             = "Vers på væggen 20x20"
             %span.sr-only (current)
-        %li
+        %li{ class: params['product_type'].to_i == Product::WALL20x42 ? "active" : ""}
           = link_to products_path(product_type: Product::WALL20x42) do
             = "Vers på væggen 20x42"
-        %li
-          = link_to more_path do
-            = "Mere"
-        %li
-          = link_to more_path do
-            = "Kontakt"
+        -#%li
+        -#  = link_to more_path do
+        -#    = "Mere"
+        -#%li
+        -#  = link_to more_path do
+        -#    = "Kontakt"
         %li
           = link_to orders_path, class: 'cart' do
             .badge.cart_badge= "0"
