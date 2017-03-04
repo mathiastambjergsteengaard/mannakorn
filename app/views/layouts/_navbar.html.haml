@@ -28,8 +28,8 @@
         -#%li
         -#  = link_to more_path do
         -#    = "Kontakt"
-        %li
-          = link_to orders_path, class: 'cart' do
+        %li{ class: params['product_type'].present? ? "" : "active"}
+          = link_to orders_path, class: "cart" do
             .badge.cart_badge= "0"
             %span.fa.fa-shopping-cart
     / /.navbar-collapse
