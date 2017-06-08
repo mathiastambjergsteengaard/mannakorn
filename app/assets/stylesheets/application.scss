@@ -41,14 +41,10 @@
 
 body{
   background-color: #F0F8FF;
-  .container-fluid{
-    box-shadow: 5px 5px 5px #888888;
-  }
-  padding-top: 50px;
   .container{
-    margin-bottom: 20px;
-    width: 100%;
-    margin-top:20px;
+    margin:auto;
+    width: 80%;
+    margin-top: 20px;
   }
   img.square{
     display: block;
