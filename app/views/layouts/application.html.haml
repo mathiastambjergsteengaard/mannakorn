@@ -11,10 +11,11 @@
   - else
     %body{class: controller.controller_name + "_" + action_name}
       = render partial: '/layouts/navbar'
-      .container
+      %div{ class: @browser.device.mobile? ? "mobile_container" : "container"}
         = yield
-      .footer
-        = image_tag('footer.png')
+      - if !@browser.device.mobile?
+        .footer
+          = image_tag('footer.png')
 
 
 

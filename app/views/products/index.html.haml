@@ -1,18 +1,33 @@
-- @products.in_groups_of(3).each do |product_row|
-  .row
-    - product_row.each do |product|
-      - if product.present?
-        .col-xs-4
-          .product_block
-            =# link_to product_path(product) do
-            = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
-            %h3= product.name
-            %p= product.description
-            %p.price= product.price_kr
-            = link_to new_order_path(id: product.id), class: "add" do
-              .button{data: product.id.to_s, name: product.image_ref || 'salme_37_5_road'}
-                Tilføj til ordrelisten
-                %i.fa.fa-plus
+- if !@browser.device.mobile?
+  - @products.in_groups_of(3).each do |product_row|
+    .row
+      - product_row.each do |product|
+        - if product.present?
+          .col-xs-4
+            .product_block
+              =# link_to product_path(product) do
+              = image_tag(product.image_ref, class: product.html_class + " img-thumbnail desktop_img")
+              %h3= product.name
+              %p= product.description
+              %p.price= product.price_kr
+              = link_to new_order_path(id: product.id), class: "add" do
+                .button{data: product.id.to_s, name: product.image_ref || 'salme_37_5_road'}
+                  Tilføj til ordrelisten
+                  %i.fa.fa-plus
+- else
+  .list-group
+    - @products.each do |product|
+      %a.list-group-item{:href => "#"}
+        = image_tag(product.image_ref, class: product.html_class + " img-thumbnail mobile_img ")
+        %h3= product.name
+        %p= product.description
+        %p.price= product.price_kr
+        = link_to new_order_path(id: product.id), class: "add" do
+          .button{data: product.id.to_s, name: product.image_ref || 'salme_37_5_road'}
+            Tilføj til ordrelisten
+            %i.fa.fa-plus
+
+
 
 :coffeescript
   $ ->

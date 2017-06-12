@@ -28,7 +28,7 @@ gem 'shadowbox-rails'
 gem 'simple_form'
 gem 'mobvious'
 gem 'haml'
-
+gem 'browser'
 gem 'rails_12factor', group: :production
 
 gem 'haml-rails'
