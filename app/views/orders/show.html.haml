@@ -45,7 +45,7 @@
 
   %br
   %hr
-  .row
+  .row.bottom_place_order
     .col-xs-9
     .col-xs-3
       = link_to new_user_path(order_id: @order.id), class: "add" do
@@ -68,5 +68,6 @@
       $('.cart_badge').html(null)
       localStorage.removeItem("order_number");
       localStorage.removeItem("order_id");
+      window.location = '/products?product_type=4'
 
 

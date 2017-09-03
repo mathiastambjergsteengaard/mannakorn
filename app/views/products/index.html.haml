@@ -17,7 +17,7 @@
 - else
   .list-group
     - @products.each do |product|
-      %a.list-group-item{:href => "#"}
+      %a.list-group-item
         = image_tag(product.image_ref, class: product.html_class + " img-thumbnail mobile_img ")
         %h3= product.name
         %p= product.description
