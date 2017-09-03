@@ -18,6 +18,7 @@ class UsersController < ApplicationController
     if @user.save
       @order.user_id = @user.id
       UserMailer.order_confirmation(@user, @order).deliver_later
+      AdminMailer.new_order(@user, @order).deliver_later
       render 'orders/confirmation'
     else
       render "new"
