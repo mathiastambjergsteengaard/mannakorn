@@ -1,56 +1,101 @@
 - if @order.present?
-  .row.headline
-    .col-xs-3
-      .order-list
-        = "Ordre listen"
-    .col-xs-6
-    .col-xs-3
-      = link_to new_user_path(order_id: @order.id), class: "add" do
-        .button.pull-right
-          Placér ordren
+  - if !@browser.device.mobile?
+    .row.headline
+      .col-xs-3
+        .order-list
+          = "Ordre listen"
+      .col-xs-6
+      .col-xs-3
+        = link_to new_user_path(order_id: @order.id), class: "add" do
+          .button.pull-right
+            Placér ordren
 
-  .row
-    .col-xs-2
-      = "Produkt"
-    .col-xs-5
-      = "Beskrivelse"
-    .col-xs-3
-      = "Antal"
-    .col-xs-2
-      .pull-right= "Total"
-
-  - @order.products.each do |product|
-    %hr
     .row
       .col-xs-2
-        = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
+        = "Produkt"
       .col-xs-5
-        %h3= product.name
-        %p= product.description
-        %p= product.price_kr
+        = "Beskrivelse"
       .col-xs-3
-        = link_to minus_order_path(@order, product_id: product.id), class: "minus", method: :post do
-          .btn.btn-default
-            = "-"
-        = product.count_in_order(@order.id)
-        = link_to plus_order_path(@order, product_id: product.id), class: "plus", method: :post do
-          .btn.btn-default
-            +
+        = "Antal"
       .col-xs-2
-        .pull-right= product.total(@order.id)
+        .pull-right= "Total"
 
-  %hr
+    - @order.products.each do |product|
+      %hr
+      .row
+        .col-xs-2
+          = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
+        .col-xs-5
+          %h3= product.name
+          %p= product.description
+          %p= product.price_kr
+        .col-xs-3
+          = link_to minus_order_path(@order, product_id: product.id), class: "minus", method: :post do
+            .btn.btn-default
+              = "-"
+          = product.count_in_order(@order.id)
+          = link_to plus_order_path(@order, product_id: product.id), class: "plus", method: :post do
+            .btn.btn-default
+              +
+        .col-xs-2
+          .pull-right= product.total(@order.id)
 
-  .pull-right= "Subtotal: " + @order.acc_price.to_s + " kr."
+    %hr
 
-  %br
-  %hr
-  .row.bottom_place_order
-    .col-xs-9
-    .col-xs-3
-      = link_to new_user_path(order_id: @order.id), class: "add" do
-        .button.pull-right
-          Placér ordren
+    .pull-right= "Subtotal: " + @order.acc_price.to_s + " kr."
+
+    %br
+    %hr
+    .row.bottom_place_order
+      .col-xs-9
+      .col-xs-3
+        = link_to new_user_path(order_id: @order.id), class: "add" do
+          .button.pull-right
+            Placér ordren
+  - else
+    .row.headline
+      .col-xs-12
+        .order-list
+          = "Ordre listen"
+    .row
+      .col-xs-12
+        = link_to new_user_path(order_id: @order.id), class: "add" do
+          .button.pull-right
+            Placér ordren
+
+    - @order.products.each do |product|
+      %hr
+      .row
+        .col-xs-12
+          = image_tag(product.image_ref, class: product.html_class + " img-thumbnail")
+      .row
+        .col-xs-12
+          %h3= product.name
+          %p= product.description
+          %p= product.price_kr
+      .row
+        .col-xs-12
+          = link_to minus_order_path(@order, product_id: product.id), class: "minus", method: :post do
+            .btn.btn-default
+              = "-"
+          = product.count_in_order(@order.id)
+          = link_to plus_order_path(@order, product_id: product.id), class: "plus", method: :post do
+            .btn.btn-default
+              +
+      .row
+        .col-xs-12
+          .pull-right= product.total(@order.id)
+    %hr
+
+    .pull-right= "Subtotal: " + @order.acc_price.to_s + " kr."
+
+    %br
+    %hr
+    .row.bottom_place_order
+      .col-xs-12
+        = link_to new_user_path(order_id: @order.id), class: "add" do
+          .button.pull-right
+            Placér ordren
 
 
 
@@ -69,5 +114,6 @@
       localStorage.removeItem("order_number");
       localStorage.removeItem("order_id");
       window.location = '/products?product_type=4'
+
 
 

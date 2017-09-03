@@ -29,21 +29,20 @@
         .error
           = @user.errors.messages[:zip_code].first if @user
 
-
-    %h4= "Du har valgt følgende emner: "
-    %table
-      %head
-      %tr
-        %th
-          = "Emne"
-        %th
-          = "Beskrivelse"
-        %th
-          = "Antal"
-        %th.price
-          = "Pris"
-      %body
-        - @order.products.each_with_index do |product, index|
+    - if !@browser.device.mobile?
+      %h4= "Du har valgt følgende emner: "
+      %table
+        %head
+        %tr
+          %th
+            = "Emne"
+          %th
+            = "Beskrivelse"
+          %th
+            = "Antal"
+          %th.price
+            = "Pris"
+        %body
           %tr
             %td
               = product.name
@@ -54,6 +53,13 @@
             %td.price
               = product.price
         %hr
+    - else
+      %h4= "Du har valgt følgende emner: "
+      - @order.products.each_with_index do |product, index|
+        %hr
+        %p= "Emne: " + product.name
+        %p= "Antal: " + OrdersProduct.find_by(product_id: product.id, order_id: @order.id).count.to_s
+        %p= "Pris: " + product.price.to_s
     %hr
     .row
       .col-xs-12

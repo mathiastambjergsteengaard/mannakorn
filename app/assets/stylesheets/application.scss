@@ -157,6 +157,11 @@ ul.dropdown-cart li .item:after{
   }
 }
  .users_new {
+
+   .mobile_container{
+     padding: 0px 30px 0px 30px;
+     margin-bottom: 10px;
+   }
    th, td {
      padding-right: 100px;
    }
@@ -183,6 +188,12 @@ ul.dropdown-cart li .item:after{
   }
  }
  .orders_show{
+
+   .mobile_container{
+     padding: 0px 50px 0px 50px;
+     margin-top:10px
+   }
+
    .order-list{
      font-size: 28px;
 
