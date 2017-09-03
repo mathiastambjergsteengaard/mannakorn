@@ -43,15 +43,16 @@
           %th.price
             = "Pris"
         %body
-          %tr
-            %td
-              = product.name
-            %td
-              = product.description
-            %td
-              = OrdersProduct.find_by(product_id: product.id, order_id: @order.id).count
-            %td.price
-              = product.price
+          - @order.products.each_with_index do |product, index|
+            %tr
+              %td
+                = product.name
+              %td
+                = product.description
+              %td
+                = OrdersProduct.find_by(product_id: product.id, order_id: @order.id).count
+              %td.price
+                = product.price
         %hr
     - else
       %h4= "Du har valgt følgende emner: "
