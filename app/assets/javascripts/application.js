@@ -17,8 +17,6 @@
 //= require turbolinks
 //= require_tree .
 
-Shadowbox.init();
-
 function setCookie(cname, cvalue) {
     document.cookie = cname + "=" + cvalue + "; "
 }

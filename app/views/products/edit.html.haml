@@ -18,9 +18,12 @@
         = f.input :image_ref
       .col-xs-6
         = f.input :product_type, as: :select, collection: Product.collection
+    .row
+      .col-xs-6
+        = f.input :image, type: "file"
   .col-xs-2
     %h4= "Billede"
-    = image_tag @product.image_ref
+    = image_tag @product.image.url
   .row
     .col-xs-12
       .pull-right

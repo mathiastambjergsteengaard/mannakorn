@@ -1,12 +1,12 @@
 %nav.navbar.navbar-default.navbar-inverse.navbar-static-top{:role => "navigation"}
   #navfluid.container-fluid
     .navbar-header
-      %button.navbar-toggle{"data-target" => "#navigationbar", "data-toggle" => "collapse", :type => "button"}
+      %button.navbar-toggle{"data-target" => "#navigationbar", "data-toggle" => "collapse", :type => "button" }
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{:href => "/products?product_type=4" } Mannakorn.dk
+      %a.navbar-brand{:href => "/"} Mannakorn.dk
     #navigationbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
         %li{ class: params['product_type'].to_i == Product::OTHER ? "active" : ""}

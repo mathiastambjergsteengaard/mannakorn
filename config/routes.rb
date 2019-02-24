@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'products#index'
+  root to: 'static_pages#front_page'
   get 'more' => 'static_pages#more', as: :more
   get 'contact' => 'static_pages#contact', as: :contact
 

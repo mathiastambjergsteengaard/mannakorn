@@ -2,6 +2,10 @@ class Product < ActiveRecord::Base
   has_and_belongs_to_many :orders
   has_many :orders_products, foreign_key: :product_id
 
+  has_attached_file :image
+
+  validates_attachment :image, content_type: { content_type: ["image/jpeg", "image/gif", "image/png"] }
+
   WALL15x15 = 1
   WALL20x20 = 2
   WALL20x42 = 3
