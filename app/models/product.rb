@@ -9,7 +9,13 @@ class Product < ActiveRecord::Base
   WALL15x15 = 1
   WALL20x20 = 2
   WALL20x42 = 3
-  OTHER = 4
+  WALLCHRISTMAS20x42 = 4
+  WALL10x10 = 5
+  MANNAKORN = 6
+  MANNAKORT = 7
+  KONFIRMATIONSKORT = 8
+  ANDREKORT = 9
+
 
   def self.collection
     [

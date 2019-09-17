@@ -8,6 +8,7 @@
 /.bundle
 
 /.idea/workspace.xml
+/.idea/mannakorn.iml
 
 # Ignore all logfiles and tempfiles.
 /log/*
