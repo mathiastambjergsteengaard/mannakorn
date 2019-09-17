@@ -20,9 +20,9 @@
         %li{ class: params['product_type'].to_i == Product::WALL20x42 ? "active" : ""}
           = link_to products_path(product_type: Product::WALL20x42) do
             = "Vers på væggen 20x42"
-        %li{ class: params['product_type'].to_i == Product::OTHER ? "active" : ""}
-          = link_to products_path(product_type: Product::OTHER) do
-            = "Mannakorn"
+        %li{ class: params['product_type'].to_i == Product::WALL10x10 ? "active" : ""}
+          = link_to products_path(product_type: Product::WALL10x10) do
+            = "Vers på væggen 10x10"
         -#%li
         -#  = link_to more_path do
         -#    = "Mere"
